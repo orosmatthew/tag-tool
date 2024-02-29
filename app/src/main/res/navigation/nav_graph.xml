@@ -9,5 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="site.pixeled.tagtool.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeUserFragment"
+        android:name="site.pixeled.tagtool.WelcomeUserFragment"
+        android:label="fragment_welcome_user"
+        tools:layout="@layout/fragment_welcome_user" />
 </navigation>
