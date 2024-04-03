@@ -4,7 +4,7 @@ namespace controllers;
 
 class Response
 {
-    public ?object $data;
+    public $data;
     public int $status;
     public ?string $error;
 

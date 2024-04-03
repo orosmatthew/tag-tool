@@ -24,7 +24,8 @@ if (method_exists($controller, $method)) {
     if ($method == "post" || $method == "put") {
         $req->data = $data;
     }
-    $response = call_user_func(array($controller, $method), $req);
+    $res = call_user_func(array($controller, $method), $req);
+    echo json_encode($res);
 } else {
     http_response_code(405);
     die();
