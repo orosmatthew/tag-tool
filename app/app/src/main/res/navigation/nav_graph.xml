@@ -18,10 +18,26 @@
         android:id="@+id/welcomeUserFragment"
         android:name="site.pixeled.tagtool.WelcomeUserFragment"
         android:label="fragment_welcome_user"
-        tools:layout="@layout/fragment_welcome_user" />
+        tools:layout="@layout/fragment_welcome_user" >
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/scannerFragment"
         android:name="site.pixeled.tagtool.ScannerFragment"
         android:label="fragment_scanner"
         tools:layout="@layout/fragment_scanner" />
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="site.pixeled.tagtool.AddItemFragment"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" >
+        <action
+            android:id="@+id/action_addItemFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
 </navigation>
