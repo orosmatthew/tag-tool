@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeUserFragment"
             app:destination="@id/welcomeUserFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_newAccountFragment"
+            app:destination="@id/newAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeUserFragment"
@@ -25,12 +28,22 @@
         <action
             android:id="@+id/action_welcomeUserFragment_to_addItemFragment"
             app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_myListFragment"
+            app:destination="@id/myListFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
         android:name="site.pixeled.tagtool.ScannerFragment"
         android:label="fragment_scanner"
-        tools:layout="@layout/fragment_scanner" />
+        tools:layout="@layout/fragment_scanner" >
+        <action
+            android:id="@+id/action_scannerFragment_to_successAddedFragment"
+            app:destination="@id/successAddedFragment" />
+        <action
+            android:id="@+id/action_scannerFragment_to_errorUsedFragment"
+            app:destination="@id/errorUsedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addItemFragment"
         android:name="site.pixeled.tagtool.AddItemFragment"
@@ -39,5 +52,43 @@
         <action
             android:id="@+id/action_addItemFragment_to_scannerFragment"
             app:destination="@id/scannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successAddedFragment"
+        android:name="site.pixeled.tagtool.SuccessAddedFragment"
+        android:label="fragment_success_added"
+        tools:layout="@layout/fragment_success_added" >
+        <action
+            android:id="@+id/action_successAddedFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_successAddedFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorUsedFragment"
+        android:name="site.pixeled.tagtool.ErrorUsedFragment"
+        android:label="fragment_error_used"
+        tools:layout="@layout/fragment_error_used" >
+        <action
+            android:id="@+id/action_errorUsedFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_errorUsedFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myListFragment"
+        android:name="site.pixeled.tagtool.MyListFragment"
+        android:label="fragment_my_list"
+        tools:layout="@layout/fragment_my_list" />
+    <fragment
+        android:id="@+id/newAccountFragment"
+        android:name="site.pixeled.tagtool.NewAccountFragment"
+        android:label="fragment_new_account"
+        tools:layout="@layout/fragment_new_account" >
+        <action
+            android:id="@+id/action_newAccountFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
     </fragment>
 </navigation>
