@@ -2,7 +2,6 @@
 
 use controllers\Request;
 use controllers\Response;
-use model\Database;
 use model\ItemModel;
 use model\types\Item;
 
