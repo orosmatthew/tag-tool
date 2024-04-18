@@ -43,6 +43,12 @@
         <action
             android:id="@+id/action_scannerFragment_to_errorUsedFragment"
             app:destination="@id/errorUsedFragment" />
+        <action
+            android:id="@+id/action_scannerFragment_to_errorNotFoundFragment"
+            app:destination="@id/errorNotFoundFragment" />
+        <action
+            android:id="@+id/action_scannerFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
@@ -103,5 +109,32 @@
         <action
             android:id="@+id/action_itemFragment_to_myListFragment"
             app:destination="@id/myListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorNotFoundFragment"
+        android:name="site.pixeled.tagtool.ErrorNotFoundFragment"
+        android:label="fragment_error_not_found"
+        tools:layout="@layout/fragment_error_not_found" >
+        <action
+            android:id="@+id/action_errorNotFoundFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_errorNotFoundFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
+        <action
+            android:id="@+id/action_errorNotFoundFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_errorNotFoundFragment_to_easterEggFragment"
+            app:destination="@id/easterEggFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/easterEggFragment"
+        android:name="site.pixeled.tagtool.EasterEggFragment"
+        android:label="fragment_easter_egg"
+        tools:layout="@layout/fragment_easter_egg" >
+        <action
+            android:id="@+id/action_easterEggFragment_to_errorNotFoundFragment"
+            app:destination="@id/errorNotFoundFragment" />
     </fragment>
 </navigation>
