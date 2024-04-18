@@ -81,7 +81,11 @@
         android:id="@+id/myListFragment"
         android:name="site.pixeled.tagtool.MyListFragment"
         android:label="fragment_my_list"
-        tools:layout="@layout/fragment_my_list" />
+        tools:layout="@layout/fragment_my_list" >
+        <action
+            android:id="@+id/action_myListFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newAccountFragment"
         android:name="site.pixeled.tagtool.NewAccountFragment"
@@ -90,5 +94,14 @@
         <action
             android:id="@+id/action_newAccountFragment_to_welcomeUserFragment"
             app:destination="@id/welcomeUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="site.pixeled.tagtool.ItemFragment"
+        android:label="fragment_item"
+        tools:layout="@layout/fragment_item" >
+        <action
+            android:id="@+id/action_itemFragment_to_myListFragment"
+            app:destination="@id/myListFragment" />
     </fragment>
 </navigation>
