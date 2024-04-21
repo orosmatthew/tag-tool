@@ -26,6 +26,15 @@ class ItemModel
         return $results;
     }
 
+    static function getItems(): ?array
+    {
+        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData FROM Item");
+        if (isset(Database::$lastError)) {
+            return null;
+        }
+        return $results;
+    }
+
     static function deleteItem(int $id): bool
     {
         Database::executeSql("DELETE FROM Item WHERE id = ?", "i", array($id));

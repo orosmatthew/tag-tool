@@ -10,6 +10,7 @@ require_once(__DIR__ . '/../../tag-tool/lib/Security.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/ItemController.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/UserController.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/AuthController.php');
+require_once(__DIR__ . '/../../tag-tool/controllers/ItemsController.php');
 
 header('Content-Type: application/json');
 date_default_timezone_set('America/New_York');
