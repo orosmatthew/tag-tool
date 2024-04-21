@@ -35,9 +35,7 @@ class LoginFragment : Fragment() {
                 if (isValid) {
                     AuthRequest.username = username
                     AuthRequest.password = password
-                    val toast =
-                        Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT)
-                    toast.show()
+                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_welcomeUserFragment)
                 } else {
                     val toast =
                         Toast.makeText(requireContext(), "Invalid Login!", Toast.LENGTH_SHORT)
