@@ -13,6 +13,10 @@ require_once(__DIR__ . '/../../tag-tool/controllers/AuthController.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/ItemsController.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/NoteController.php');
 require_once(__DIR__ . '/../../tag-tool/controllers/NotesController.php');
+require_once(__DIR__ . '/../../tag-tool/controllers/TagController.php');
+require_once(__DIR__ . '/../../tag-tool/controllers/TagsController.php');
+require_once(__DIR__ . '/../../tag-tool/controllers/TagTypeController.php');
+require_once(__DIR__ . '/../../tag-tool/controllers/TagTypesController.php');
 
 header('Content-Type: application/json');
 date_default_timezone_set('America/New_York');
