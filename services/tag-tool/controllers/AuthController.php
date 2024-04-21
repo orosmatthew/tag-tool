@@ -15,6 +15,10 @@ class AuthController
     static public function post(Request $req): Response
     {
         $user = new User($req->data);
+        if (!UserModel::exists($user->username)) {
+            $data = array("userId" => null);
+            return new Response($data, null, 0);
+        }
         $result = UserModel::authenticate($user);
         $data = array("userId" => $result->id);
         return new Response($data, null, 0);
