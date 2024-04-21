@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnused */
 
-use controllers\Request;
-use controllers\Response;
+namespace controllers;
+
 use model\ItemModel;
 use model\types\Item;
 

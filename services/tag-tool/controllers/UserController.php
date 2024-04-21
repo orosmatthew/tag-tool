@@ -14,7 +14,9 @@ class UserController
     static public function post(Request $req): Response
     {
         $user = new User($req->data);
-        // TODO: check if user exists
+        if (UserModel::exists($user->username)) {
+            return new Response(null, null, 1);
+        }
         $success = UserModel::createUser($user);
         return new Response(null, null, $success ? 0 : 1);
     }

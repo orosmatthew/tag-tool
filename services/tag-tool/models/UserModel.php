@@ -17,6 +17,16 @@ class UserModel
         return isset($id);
     }
 
+    static public function exists(string $username): ?bool
+    {
+        $sql = "SELECT id, username FROM User where username = ?";
+        $result = Database::executeSql($sql, "s", array($username));
+        if (is_array($result)) {
+            return count($result) > 0;
+        }
+        return null;
+    }
+
     static function authenticate(User $user)
     {
         $sql = "SELECT id, username, password FROM User where username = ?";
