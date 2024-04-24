@@ -1,21 +1,14 @@
 package site.pixeled.tagtool
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.android.volley.Request
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
-import org.json.JSONObject
-import site.pixeled.tagtool.AuthRequest.Companion.password
-import site.pixeled.tagtool.AuthRequest.Companion.username
 
 
 class LoginFragment : Fragment() {
@@ -26,7 +19,7 @@ class LoginFragment : Fragment() {
         ServiceClient.initQueue(requireActivity())
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        view.findViewById<Button>(R.id.LogInButton).setOnClickListener(View.OnClickListener {
+        view.findViewById<Button>(R.id.LogInButton).setOnClickListener {
 
             val username = view.findViewById<EditText>(R.id.Username).text.toString()
             val password = view.findViewById<EditText>(R.id.Password).text.toString()
@@ -35,7 +28,8 @@ class LoginFragment : Fragment() {
                 if (isValid) {
                     AuthRequest.username = username
                     AuthRequest.password = password
-                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_welcomeUserFragment)
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_loginFragment_to_welcomeUserFragment)
                 } else {
                     val toast =
                         Toast.makeText(requireContext(), "Invalid Login!", Toast.LENGTH_SHORT)
@@ -43,7 +37,7 @@ class LoginFragment : Fragment() {
                 }
 
             }
-        })
+        }
         return view
     }
 }

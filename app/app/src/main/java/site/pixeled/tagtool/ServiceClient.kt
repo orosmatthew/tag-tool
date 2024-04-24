@@ -7,33 +7,52 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
-import site.pixeled.tagtool.Models.AuthRes
-import site.pixeled.tagtool.Models.Item
+import site.pixeled.tagtool.model.ApiResponse
+import site.pixeled.tagtool.model.AuthResponseData
+import site.pixeled.tagtool.model.Item
 import java.util.concurrent.CompletableFuture
 
 object ServiceClient {
     private lateinit var queue: RequestQueue
+    private var initialized = false
 
-    public fun initQueue(mainActivity: Activity) {
-        queue = Volley.newRequestQueue(mainActivity)
+    fun initQueue(mainActivity: Activity) {
+        if (!initialized) {
+            queue = Volley.newRequestQueue(mainActivity)
+            initialized = true
+        }
     }
 
     private fun sendRequest(request: Request<JSONObject>) {
         queue.add(request)
     }
 
+    // reified to keep generic info at compile-time which also requires it to be inline
+    private inline fun <reified T> gsonParseApiResponse(json: JSONObject): ApiResponse<T> {
+        // magic to handle lack of generic type usage directly in gson
+        val type = object : TypeToken<ApiResponse<T>>() {}.type
+        return Gson().fromJson(json.toString(), type)
+    }
+
+    private fun gsonParseApiResponse(json: JSONObject): ApiResponse<Unit> {
+        // magic to handle lack of generic type usage directly in gson
+        val type = object : TypeToken<ApiResponse<Unit>>() {}.type
+        return Gson().fromJson(json.toString(), type)
+    }
+
     fun authUser(username: String, password: String): CompletableFuture<Boolean> {
         val future = CompletableFuture<Boolean>()
-        val json = JSONObject();
-        json.put("username", username);
-        json.put("password", password);
+        val json = JSONObject()
+        json.put("username", username)
+        json.put("password", password)
 
         val request = JsonObjectRequest(Request.Method.POST,
             "https://mopsdev.bw.edu/~moros20/tag-tool/rest.php/Auth",
             json,
             { res ->
-                val userId = Gson().fromJson(res.get("data").toString(), AuthRes::class.java).userId
+                val userId = gsonParseApiResponse<AuthResponseData>(res).data.userId
                 future.complete(userId != null)
             },
             { err ->
@@ -50,7 +69,7 @@ object ServiceClient {
             "https://mopsdev.bw.edu/~moros20/tag-tool/rest.php/Item/$id",
             null,
             { res ->
-                val item = Gson().fromJson(res.get("data").toString(), Item::class.java)
+                val item = gsonParseApiResponse<Item>(res).data
                 future.complete(item)
             },
             { err ->
@@ -71,7 +90,7 @@ object ServiceClient {
             "https://mopsdev.bw.edu/~moros20/tag-tool/reset.php/Item",
             json,
             { res ->
-                val status = res.getInt("status")
+                val status = gsonParseApiResponse(res).status
                 future.complete(status)
             },
             { err ->
@@ -88,7 +107,7 @@ object ServiceClient {
             "https://mopsdev.bw.edu/~moros20/tag-tool/reset.php/Item/$id",
             null,
             { res ->
-                val status = res.getInt("status")
+                val status = gsonParseApiResponse(res).status
                 future.complete(status)
             },
             { err ->
@@ -115,7 +134,7 @@ object ServiceClient {
             "https://mopsdev.bw.edu/~moros20/tag-tool/reset.php/Item/$id",
             json,
             { res ->
-                val status = res.getInt("status")
+                val status = gsonParseApiResponse(res).status
                 future.complete(status)
             },
             { err ->
@@ -132,7 +151,7 @@ object ServiceClient {
             "https://mopsdev.bw.edu/~moros20/tag-tool/reset.php/Items",
             null,
             { res ->
-                val items = Gson().fromJson(res.get("data").toString(), Array<Item>::class.java)
+                val items = gsonParseApiResponse<Array<Item>>(res).data
                 future.complete(items)
             },
             { err ->

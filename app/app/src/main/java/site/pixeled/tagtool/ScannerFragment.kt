@@ -35,10 +35,10 @@ class ScannerFragment : Fragment() {
         mCodeScanner.setDecodeCallback {
             activity.runOnUiThread {
                 Toast.makeText(activity, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                mCodeScanner.startPreview();
+                mCodeScanner.startPreview()
             }
         }
-        return view;
+        return view
     }
 
     override fun onResume() {

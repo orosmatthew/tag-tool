@@ -1,12 +1,8 @@
 package site.pixeled.tagtool
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.budiyev.android.codescanner.AutoFocusMode
+import androidx.appcompat.app.AppCompatActivity
 import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.ScanMode
 
 
 class MainActivity : AppCompatActivity() {

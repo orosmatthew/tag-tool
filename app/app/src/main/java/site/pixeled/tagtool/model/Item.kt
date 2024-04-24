@@ -1,4 +1,4 @@
-package site.pixeled.tagtool.Models
+package site.pixeled.tagtool.model
 
 data class Item(
     val id: Int,
