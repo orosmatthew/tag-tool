@@ -29,7 +29,7 @@ object ServiceClient {
         queue.add(request)
     }
 
-    // reified to keep generic info at compile-time which also requires it to be inline
+    // reified to keep generic info at runtime which also requires it to be inline
     private inline fun <reified T> gsonParseApiResponse(json: JSONObject): ApiResponse<T> {
         // magic to handle lack of generic type usage directly in gson
         val type = object : TypeToken<ApiResponse<T>>() {}.type
