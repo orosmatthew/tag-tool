@@ -37,15 +37,16 @@ object ServiceClient {
         return Gson().fromJson(json.toString(), type)
     }
 
-    fun authUser(username: String, password: String): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
+
+    fun authUser(username: String, password: String): CompletableFuture<Int?> {
+        val future = CompletableFuture<Int?>()
         val json = JSONObject()
         json.put("username", username)
         json.put("password", password)
 
         val request = JsonObjectRequest(Request.Method.POST, "$apiUrl/Auth", json, { res ->
             val userId = gsonParseApiResponse<AuthResponseData>(res).data.userId
-            future.complete(userId != null)
+            future.complete(userId)
         }, { err ->
             Log.e("POST Auth", err.toString())
             future.completeExceptionally(err)
@@ -74,7 +75,7 @@ object ServiceClient {
         val json = JSONObject()
         json.put("name", name)
         json.put("description", description)
-        json.put("codeData", codeData)
+        json.put("codeData", codeData ?: JSONObject.NULL)
         val request = AuthRequest(Request.Method.POST, "$apiUrl/Item", json, { res ->
             val status = gsonParseApiResponse<Unit>(res).status
             future.complete(status == 0)

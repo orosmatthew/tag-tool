@@ -5,5 +5,6 @@ data class Item(
     val name: String,
     val description: String,
     val createdAt: String,
-    val codeData: String
+    val codeData: String,
+    val userId: Int
 )

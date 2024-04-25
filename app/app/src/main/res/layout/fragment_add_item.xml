@@ -28,9 +28,9 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ItemDescription"
+            android:layout_width="301dp"
+            android:layout_height="113dp"
             android:layout_marginTop="44dp"
             android:ems="10"
             android:gravity="start|top"
@@ -39,10 +39,9 @@
             android:textColorHint="#9C27B0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/todo"
-            app:layout_constraintVertical_bias="0.024" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/todo"
@@ -89,14 +88,22 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="292dp"
+            android:layout_marginTop="52dp"
             android:text="Scan Item Sticker"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/ItemDescription" />
+
+        <Button
+            android:id="@+id/AddItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Add Item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

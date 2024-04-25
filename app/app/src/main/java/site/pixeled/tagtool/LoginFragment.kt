@@ -24,13 +24,15 @@ class LoginFragment : Fragment() {
             val username = view.findViewById<EditText>(R.id.Username).text.toString()
             val password = view.findViewById<EditText>(R.id.Password).text.toString()
 
-            ServiceClient.authUser(username, password).thenApply { isValid ->
-                if (isValid) {
+            ServiceClient.authUser(username, password).thenApply { userId ->
+                userId?.let {
                     AuthRequest.username = username
                     AuthRequest.password = password
+                    AuthRequest.userId = it
                     Navigation.findNavController(view)
                         .navigate(R.id.action_loginFragment_to_welcomeUserFragment)
-                } else {
+                }
+                if (userId == null) {
                     val toast =
                         Toast.makeText(requireContext(), "Invalid Login!", Toast.LENGTH_SHORT)
                     toast.show()

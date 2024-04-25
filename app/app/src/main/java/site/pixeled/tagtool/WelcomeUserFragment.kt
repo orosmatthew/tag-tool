@@ -19,6 +19,10 @@ class WelcomeUserFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_myListFragment)
         }
+        view.findViewById<Button>(R.id.AddNew).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_welcomeUserFragment_to_addItemFragment)
+        }
         return view
     }
 }
