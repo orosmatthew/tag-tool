@@ -11,40 +11,40 @@ class ItemModel
 {
     static function createItem(Item $item): bool
     {
-        Database::executeSql("INSERT INTO Item (name, description, codeData) VALUES (?, ?, ?)",
-            "sss", array($item->name, $item->description, $item->codeData));
+        Database::executeSql("INSERT INTO Item (name, description, codeData, userId) VALUES (?, ?, ?, ?)",
+            "sssi", array($item->name, $item->description, $item->codeData, $item->userId));
         return !isset(Database::$lastError);
     }
 
-    static function getItem(int $id): ?array
+    static function getItem(int $userId, int $id): ?array
     {
-        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData FROM Item WHERE id = ?",
-            "i", array($id));
+        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData, userId FROM Item WHERE id = ? AND userId = ?",
+            "ii", array($id, $userId));
         if (isset(Database::$lastError)) {
             return null;
         }
         return $results;
     }
 
-    static function getItems(): ?array
+    static function getItems(int $userId): ?array
     {
-        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData FROM Item");
+        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData, userId FROM Item WHERE userId = ?", "i", array($userId));
         if (isset(Database::$lastError)) {
             return null;
         }
         return $results;
     }
 
-    static function deleteItem(int $id): bool
+    static function deleteItem(int $userId, int $id): bool
     {
-        Database::executeSql("DELETE FROM Item WHERE id = ?", "i", array($id));
+        Database::executeSql("DELETE FROM Item WHERE id = ? AND userId = ?", "ii", array($id, $userId));
         return !isset(Database::$lastError);
     }
 
     static function updateItem(Item $item): bool
     {
-        Database::executeSql("UPDATE Item SET name = ?, description = ?, codeData = ? WHERE id = ?", "sssi",
-            array($item->name, $item->description, $item->codeData, $item->id));
+        Database::executeSql("UPDATE Item SET name = ?, description = ?, codeData = ?, userId = ? WHERE id = ? AND userId = ?", "sssiii",
+            array($item->name, $item->description, $item->codeData, $item->userId, $item->id, $item->userId));
         return !isset(Database::$lastError);
     }
 }

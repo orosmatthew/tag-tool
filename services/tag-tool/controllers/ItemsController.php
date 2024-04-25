@@ -14,7 +14,7 @@ class ItemsController
 {
     static public function get(Request $req): Response
     {
-        $array = ItemModel::getItems();
+        $array = ItemModel::getItems($req->userId);
         return new Response($array, null, $array == null ? 1 : 0);
     }
 }

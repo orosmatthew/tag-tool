@@ -16,6 +16,7 @@ class TagTypeController
     static public function post(Request $req): Response
     {
         $tagType = new TagType($req->data);
+        $tagType->userId = $req->userId;
         $success = TagTypeModel::createTagType($tagType);
         $status = $success ? 0 : 1;
         return new Response(null, null, $status);
@@ -23,13 +24,13 @@ class TagTypeController
 
     static public function get(Request $req): Response
     {
-        $array = TagTypeModel::getTagType($req->id);
+        $array = TagTypeModel::getTagType($req->userId, $req->id);
         return new Response($array, null, $array == null ? 1 : 0);
     }
 
     static public function delete(Request $req): Response
     {
-        $success = TagTypeModel::deleteTagType($req->id);
+        $success = TagTypeModel::deleteTagType($req->userId, $req->id);
         return new Response(null, null, $success ? 0 : 1);
     }
 

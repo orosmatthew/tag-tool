@@ -16,6 +16,7 @@ class ItemController
     static public function post(Request $req): Response
     {
         $item = new Item($req->data);
+        $item->userId = $req->userId;
         $success = ItemModel::createItem($item);
         $status = $success ? 0 : 1;
         return new Response(null, null, $status);
@@ -23,19 +24,20 @@ class ItemController
 
     static public function get(Request $req): Response
     {
-        $array = ItemModel::getItem($req->id);
+        $array = ItemModel::getItem($req->userId, $req->id);
         return new Response($array, null, $array == null ? 1 : 0);
     }
 
     static public function delete(Request $req): Response
     {
-        $success = ItemModel::deleteItem($req->id);
+        $success = ItemModel::deleteItem($req->userId, $req->id);
         return new Response(null, null, $success ? 0 : 1);
     }
 
     static public function put(Request $req): Response
     {
         $item = new Item($req->data);
+        $item->userId = $req->userId;
         $item->id = $req->id;
         $success = ItemModel::updateItem($item);
         return new Response(null, null, $success ? 0 : 1);

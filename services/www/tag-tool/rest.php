@@ -28,6 +28,7 @@ $controller = "controllers\\" . ucfirst($path[1]) . "Controller";
 $data = json_decode(file_get_contents("php://input"));
 $req = new Request();
 
+$user = null;
 if (!($controller == "controllers\\UserController" && $method == "post")
     && !($controller == "controllers\\AuthController" && $method == "post")) {
     $username = $_SERVER["PHP_AUTH_USER"];
@@ -39,6 +40,7 @@ if (!($controller == "controllers\\UserController" && $method == "post")
     }
 }
 if (method_exists($controller, $method)) {
+    $req->userId = $user->id;
     if ($method == "get" || $method == "put" || $method == "delete") {
         $req->id = $path[2];
     }

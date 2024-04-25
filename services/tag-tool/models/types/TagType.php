@@ -9,6 +9,7 @@ class TagType extends Base
     public ?int $id;
     public ?string $createdAt;
     public ?string $name;
+    public ?int $userId;
 
     public function __construct(object $sourceObject)
     {

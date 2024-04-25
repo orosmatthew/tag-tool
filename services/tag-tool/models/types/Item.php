@@ -11,6 +11,7 @@ class Item extends Base
     public ?string $description;
     public ?string $createdAt;
     public ?string $codeData;
+    public int $userId;
 
     public function __construct(object $sourceObject)
     {
