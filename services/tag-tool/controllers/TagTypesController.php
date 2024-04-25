@@ -14,7 +14,7 @@ class TagTypesController
 {
     static public function get(Request $req): Response
     {
-        $array = TagTypeModel::getTagTypes();
+        $array = TagTypeModel::getTagTypes($req->userId);
         return new Response($array, null, $array == null ? 1 : 0);
     }
 }
