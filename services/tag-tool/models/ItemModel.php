@@ -11,14 +11,14 @@ class ItemModel
 {
     static function createItem(Item $item): bool
     {
-        Database::executeSql("INSERT INTO Item (name, description, codeData) VALUES (?, ?, ?)",
-            "sss", array($item->name, $item->description, $item->codeData));
+        Database::executeSql("INSERT INTO Item (name, description, codeData, userId) VALUES (?, ?, ?, ?)",
+            "sssi", array($item->name, $item->description, $item->codeData, $item->userId));
         return !isset(Database::$lastError);
     }
 
     static function getItem(int $id): ?array
     {
-        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData FROM Item WHERE id = ?",
+        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData, userId FROM Item WHERE id = ?",
             "i", array($id));
         if (isset(Database::$lastError)) {
             return null;
@@ -28,7 +28,7 @@ class ItemModel
 
     static function getItems(): ?array
     {
-        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData FROM Item");
+        $results = Database::executeSql("SELECT id, name, description, createdAt, codeData, userId FROM Item");
         if (isset(Database::$lastError)) {
             return null;
         }
@@ -43,8 +43,8 @@ class ItemModel
 
     static function updateItem(Item $item): bool
     {
-        Database::executeSql("UPDATE Item SET name = ?, description = ?, codeData = ? WHERE id = ?", "sssi",
-            array($item->name, $item->description, $item->codeData, $item->id));
+        Database::executeSql("UPDATE Item SET name = ?, description = ?, codeData = ?, userId = ? WHERE id = ?", "sssii",
+            array($item->name, $item->description, $item->codeData, $item->userId, $item->id));
         return !isset(Database::$lastError);
     }
 }
