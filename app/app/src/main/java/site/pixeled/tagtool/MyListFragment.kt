@@ -20,10 +20,15 @@ class MyListFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_myListFragment_to_welcomeUserFragment)
         }
-        val itemList = view.findViewById<RecyclerView>(R.id.item_list);
+        val itemList = view.findViewById<RecyclerView>(R.id.item_list)
         ServiceClient.getItems().thenApply { items ->
             itemList.layoutManager = LinearLayoutManager(context)
-            itemList.adapter = ItemRecyclerViewAdapter(items, null)
+            itemList.adapter = ItemRecyclerViewAdapter(items) { row ->
+                val bundle = Bundle()
+                bundle.putInt("itemId", items[row].id)
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_myListFragment_to_itemFragment, bundle)
+            }
         }
         return view
     }
