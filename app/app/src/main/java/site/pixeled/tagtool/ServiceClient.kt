@@ -74,15 +74,15 @@ object ServiceClient {
 
     fun createItem(
         name: String, description: String?, codeData: String?
-    ): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
+    ): CompletableFuture<Int?> {
+        val future = CompletableFuture<Int?>()
         val json = JSONObject()
         json.put("name", name)
         json.put("description", description)
         json.put("codeData", codeData ?: JSONObject.NULL)
         val request = AuthRequest(Request.Method.POST, "$apiUrl/Item", json, { res ->
-            val status = gsonParseApiResponse<Unit>(res).status
-            future.complete(status == 0)
+            val newId = gsonParseApiResponse<Int?>(res).data
+            future.complete(newId)
         }, { err ->
             Log.e("POST Item", err.toString())
             future.completeExceptionally(err)
@@ -281,13 +281,14 @@ object ServiceClient {
         return future
     }
 
-    fun createTag(tagTypeId: Int): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
+    fun createTag(tagTypeId: Int, itemId: Int): CompletableFuture<Int?> {
+        val future = CompletableFuture<Int?>()
         val json = JSONObject()
         json.put("tagTypeId", tagTypeId)
+        json.put("itemId", itemId)
         val request = AuthRequest(Request.Method.POST, "$apiUrl/Tag", json, { res ->
-            val status = gsonParseApiResponse<Unit>(res).status
-            future.complete(status == 0)
+            val newId = gsonParseApiResponse<Int?>(res).data
+            future.complete(newId)
         }, { err ->
             Log.e("POST Tag", err.toString())
             future.completeExceptionally(err)

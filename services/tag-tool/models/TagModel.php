@@ -9,11 +9,11 @@ require_once(__DIR__ . "/Database.php");
 
 class TagModel
 {
-    static function createTag(Tag $tag): bool
+    static function createTag(Tag $tag): ?int
     {
-        Database::executeSql("INSERT INTO Tag (tagTypeId, itemId) VALUES (?, ?)",
+        $result = Database::executeSql("INSERT INTO Tag (tagTypeId, itemId) VALUES (?, ?)",
             "ii", array($tag->tagTypeId, $tag->itemId));
-        return !isset(Database::$lastError);
+        return !isset(Database::$lastError) ? $result : null;
     }
 
     static function getTag(int $id): ?array
@@ -28,7 +28,7 @@ class TagModel
 
     static function getTags(): ?array
     {
-        $results = Database::executeSql("SELECT id, itemId, content, createdAt FROM Tag");
+        $results = Database::executeSql("SELECT id, tagTypeId, createdAt, itemId FROM Tag");
         if (isset(Database::$lastError)) {
             return null;
         }

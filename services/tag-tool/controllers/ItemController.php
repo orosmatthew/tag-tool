@@ -17,9 +17,8 @@ class ItemController
     {
         $item = new Item($req->data);
         $item->userId = $req->userId;
-        $success = ItemModel::createItem($item);
-        $status = $success ? 0 : 1;
-        return new Response(null, null, $status);
+        $newId = ItemModel::createItem($item);
+        return new Response($newId, null, $newId != null ? 0 : 1);
     }
 
     static public function get(Request $req): Response
