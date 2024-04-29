@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.findNavController
 
@@ -23,12 +24,15 @@ class ItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_item, container, false)
+        val description = view.findViewById<EditText>(R.id.SelectedItemDescription)
         itemId?.let { id ->
             ServiceClient.getItem(id).thenApply { item ->
                 item?.let {
                     view.findViewById<TextView>(R.id.SelectedItemName).text = it.name
-                    view.findViewById<TextView>(R.id.SelectedItemDescription).text =
-                        it.description ?: ""
+                    description.setText(it.description ?: "")
+                    view.findViewById<Button>(R.id.SelectedItemEdit).setOnClickListener {
+                        ServiceClient.updateItem(id, item.name, description.text.toString(), null)
+                    }
                 }
             }
             view.findViewById<Button>(R.id.SelectedItemDelete).setOnClickListener {
