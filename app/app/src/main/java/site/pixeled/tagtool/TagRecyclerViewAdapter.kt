@@ -13,8 +13,7 @@ class TagRecyclerViewAdapter(
 
     inner class ViewHolder(binding: FragmentListTagBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.listTagId
-        val nameView: TextView = binding.listTagName
+        val nameView: TextView = binding.tagText
 
         init {
             binding.root.setOnClickListener {
@@ -40,7 +39,6 @@ class TagRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tag = tags[position]
-        holder.idView.text = tag.id.toString()
         holder.nameView.text = tag.name
     }
 

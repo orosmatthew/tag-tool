@@ -9,11 +9,11 @@ require_once(__DIR__ . "/Database.php");
 
 class ItemModel
 {
-    static function createItem(Item $item): bool
+    static function createItem(Item $item): ?int
     {
-        Database::executeSql("INSERT INTO Item (name, description, codeData, userId) VALUES (?, ?, ?, ?)",
+        $result = Database::executeSql("INSERT INTO Item (name, description, codeData, userId) VALUES (?, ?, ?, ?)",
             "sssi", array($item->name, $item->description, $item->codeData, $item->userId));
-        return !isset(Database::$lastError);
+        return !isset(Database::$lastError) ? $result : null;
     }
 
     static function getItem(int $userId, int $id): ?array
