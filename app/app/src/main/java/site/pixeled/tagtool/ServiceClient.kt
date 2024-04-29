@@ -112,7 +112,7 @@ object ServiceClient {
         json.put("id", id)
         json.put("name", name)
         json.put("description", description)
-        json.put("codeData", codeData)
+        json.put("codeData", codeData ?: JSONObject.NULL)
         val request = AuthRequest(Request.Method.PUT, "$apiUrl/Item/$id", json, { res ->
             val status = gsonParseApiResponse<Unit>(res).status
             future.complete(status == 0)
