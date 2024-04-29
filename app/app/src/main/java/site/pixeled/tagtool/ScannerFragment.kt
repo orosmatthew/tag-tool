@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
@@ -32,10 +33,11 @@ class ScannerFragment : Fragment() {
         mCodeScanner.isAutoFocusEnabled = true
         mCodeScanner.isFlashEnabled = false
 
-        mCodeScanner.setDecodeCallback {
+        mCodeScanner.setDecodeCallback { code ->
             activity.runOnUiThread {
-                Toast.makeText(activity, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                mCodeScanner.startPreview()
+                Toast.makeText(activity, "Scan result: ${code.text}", Toast.LENGTH_LONG).show()
+                lastScanCode = code.text
+                view.findNavController().popBackStack()
             }
         }
         return view
@@ -49,5 +51,9 @@ class ScannerFragment : Fragment() {
     override fun onPause() {
         mCodeScanner.releaseResources()
         super.onPause()
+    }
+
+    companion object {
+        var lastScanCode: String? = null
     }
 }
