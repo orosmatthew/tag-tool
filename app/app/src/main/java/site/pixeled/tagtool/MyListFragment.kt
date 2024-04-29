@@ -20,7 +20,7 @@ class MyListFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_myListFragment_to_welcomeUserFragment)
         }
-        val itemList = view.findViewById<RecyclerView>(R.id.tag_list)
+        val itemList = view.findViewById<RecyclerView>(R.id.ItemList)
         ServiceClient.getItems().thenApply { items ->
             itemList.layoutManager = LinearLayoutManager(context)
             itemList.adapter = ItemRecyclerViewAdapter(items) { row ->
