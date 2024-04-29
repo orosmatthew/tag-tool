@@ -14,7 +14,7 @@ class ErrorNotFoundFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_error_not_found, container, false)
-        view.findViewById<Button>(R.id.toEaster).setOnClickListener {
+        view.findViewById<Button>(R.id.easterButton).setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_errorNotFoundFragment_to_easterEggFragment)
         }
