@@ -76,6 +76,10 @@ class AddItemFragment : Fragment() {
         view.findViewById<Button>(R.id.AddItemScan).setOnClickListener {
             view.findNavController().navigate(R.id.action_addItemFragment_to_scannerFragment)
         }
+        view.findViewById<Button>(R.id.BackhomefromAdd).setOnClickListener {
+            view.findNavController().navigate(R.id.action_addItemFragment_to_welcomeUserFragment)
+        }
+
 
         view.findViewById<Button>(R.id.AddItem).setOnClickListener {
             val name = view.findViewById<EditText>(R.id.ItemName).text.toString()

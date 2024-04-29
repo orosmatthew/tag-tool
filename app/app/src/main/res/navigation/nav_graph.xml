@@ -64,6 +64,12 @@
         <action
             android:id="@+id/action_addItemFragment_to_scannerFragment"
             app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_addItemFragment_self"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_addItemFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/successAddedFragment"
