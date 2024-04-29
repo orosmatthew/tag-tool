@@ -14,41 +14,37 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginBottom="372dp"
             android:fontFamily="@font/goblin_one"
             android:text="Error"
             android:textColor="#E91E63"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.293" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
             android:id="@+id/ScanAgain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="152dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
             android:text="Scan Again"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:layout_constraintVertical_bias="0.117" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <Button
             android:id="@+id/ReturnHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_width="152dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
             android:text="Back to Home"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ScanAgain"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/ScanAgain" />
 
         <TextView
             android:id="@+id/textView3"
@@ -78,13 +74,15 @@
             app:layout_constraintVertical_bias="0.012" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="203dp"
-            android:layout_height="153dp"
+            android:id="@+id/imageView"
+            android:layout_width="192dp"
+            android:layout_height="167dp"
             android:layout_marginTop="44dp"
-            android:src="@drawable/tagtoollogo"
+            android:src="@drawable/tag"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
