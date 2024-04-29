@@ -16,9 +16,8 @@ class TagController
     static public function post(Request $req): Response
     {
         $tag = new Tag($req->data);
-        $success = TagModel::createTag($tag);
-        $status = $success ? 0 : 1;
-        return new Response(null, null, $status);
+        $newId = TagModel::createTag($tag);
+        return new Response($newId, null, $newId != null ? 0 : 1);
     }
 
     static public function get(Request $req): Response
