@@ -38,7 +38,7 @@ class TagEditsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tag_edits, container, false)
         view?.findViewById<Button>(R.id.backtoTags)?.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_addItemFragment_to_welcomeUserFragment)
+            view?.findNavController()?.navigate(R.id.action_tagEditsFragment_to_tagListFragment)
         }
     }
 

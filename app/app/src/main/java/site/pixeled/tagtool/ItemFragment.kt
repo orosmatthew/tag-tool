@@ -40,6 +40,9 @@ class ItemFragment : Fragment() {
                     view.findNavController().popBackStack()
                 }
             }
+            view?.findViewById<Button>(R.id.BackfromItem)?.setOnClickListener {
+                view?.findNavController()?.navigate(R.id.action_itemFragment_to_myListFragment)
+            }
         }
         return view
     }
