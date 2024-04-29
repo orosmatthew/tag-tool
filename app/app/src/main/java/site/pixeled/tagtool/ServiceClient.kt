@@ -352,4 +352,20 @@ object ServiceClient {
         sendRequest(request)
         return future
     }
+
+    fun createUser(username: String, password: String): CompletableFuture<Boolean> {
+        val future = CompletableFuture<Boolean>()
+        val json = JSONObject()
+        json.put("username", username)
+        json.put("password", password)
+        val request = AuthRequest(Request.Method.POST, "$apiUrl/User", json, { res ->
+            val status = gsonParseApiResponse<Unit>(res).status
+            future.complete(status == 0)
+        }, { err ->
+            Log.e("POST User", err.toString())
+            future.completeExceptionally(err)
+        })
+        sendRequest(request)
+        return future
+    }
 }
