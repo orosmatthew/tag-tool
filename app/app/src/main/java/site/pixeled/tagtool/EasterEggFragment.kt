@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 
 
 class EasterEggFragment : Fragment() {
@@ -13,6 +15,11 @@ class EasterEggFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_easter_egg, container, false)
+        val view = inflater.inflate(R.layout.fragment_easter_egg, container, false)
+        view.findViewById<Button>(R.id.EasterBackOne).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_easterEggFragment_to_errorNotFoundFragment)
+        }
+        return view
     }
 }
