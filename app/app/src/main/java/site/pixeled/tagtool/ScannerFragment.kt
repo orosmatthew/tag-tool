@@ -18,8 +18,7 @@ class ScannerFragment : Fragment() {
     private lateinit var mCodeScanner: CodeScanner
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scanner, container, false)
         val activity = requireActivity()
@@ -37,7 +36,7 @@ class ScannerFragment : Fragment() {
             activity.runOnUiThread {
                 Toast.makeText(activity, "Scan result: ${code.text}", Toast.LENGTH_LONG).show()
                 lastScanCode = code.text
-                view.findNavController().popBackStack()
+                scanCallback?.invoke(code.text, view)
             }
         }
         return view
@@ -54,6 +53,7 @@ class ScannerFragment : Fragment() {
     }
 
     companion object {
+        var scanCallback: ((String, View) -> Unit)? = null
         var lastScanCode: String? = null
     }
 }

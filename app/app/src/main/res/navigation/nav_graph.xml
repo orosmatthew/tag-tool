@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_welcomeUserFragment_to_myListFragment"
             app:destination="@id/myListFragment" />
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"

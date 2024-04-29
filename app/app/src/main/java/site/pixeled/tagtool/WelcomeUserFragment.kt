@@ -20,10 +20,21 @@ class WelcomeUserFragment : Fragment() {
                 .navigate(R.id.action_welcomeUserFragment_to_myListFragment)
         }
         view.findViewById<Button>(R.id.AddNew).setOnClickListener {
+            ScannerFragment.lastScanCode = null
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_addItemFragment)
         }
         view.findViewById<Button>(R.id.ScanCodeButton).setOnClickListener {
+            ScannerFragment.scanCallback = { code, scanView ->
+                ServiceClient.getItems().thenApply { items ->
+                    items.find { item -> item.codeData == code }?.let { item ->
+                        val bundle = Bundle()
+                        bundle.putInt("itemId", item.id)
+                        Navigation.findNavController(scanView)
+                            .navigate(R.id.action_scannerFragment_to_itemFragment, bundle)
+                    }
+                }
+            }
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_scannerFragment)
         }

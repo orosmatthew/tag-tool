@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 
@@ -22,15 +23,19 @@ class AddItemFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add_item, container, false)
 
-
         val codeTextView = view.findViewById<TextView>(R.id.AddItemCode)
         codeTextView.visibility = INVISIBLE
         var scannedCode: String? = null
+
         ScannerFragment.lastScanCode?.let { code ->
             scannedCode = code
             codeTextView.text = "Scanned: $code"
             codeTextView.visibility = VISIBLE
             ScannerFragment.lastScanCode = null
+        }
+
+        ScannerFragment.scanCallback = { _, scanView ->
+            Navigation.findNavController(scanView).popBackStack()
         }
 
         view.findViewById<Button>(R.id.AddItemScan).setOnClickListener {
