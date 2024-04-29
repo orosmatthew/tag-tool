@@ -27,6 +27,7 @@ class ItemFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_item, container, false)
         val description = view.findViewById<EditText>(R.id.SelectedItemDescription)
+        val tagGroup = view.findViewById<CollectionPicker>(R.id.ItemTagGroup)
         itemId?.let { id ->
 
             ServiceClient.getItem(id).thenApply { item ->
@@ -35,14 +36,25 @@ class ItemFragment : Fragment() {
                     description.setText(it.description ?: "")
                     view.findViewById<Button>(R.id.SelectedItemEdit).setOnClickListener {
                         ServiceClient.updateItem(id, item.name, description.text.toString(), null)
-                        // TODO: Save tag edits
+                        ServiceClient.getTags().thenApply { currentTags ->
+                            val currentItemTags = currentTags.filter { t -> t.itemId == id }
+                            tagGroup.items.forEach { tagGroupItem ->
+                                val currentTag =
+                                    currentItemTags.find { t -> t.tagTypeId == tagGroupItem.id.toInt() }
+                                if (tagGroupItem.isSelected && currentTag == null) {
+                                    ServiceClient.createTag(tagGroupItem.id.toInt(), id)
+                                } else if (!tagGroupItem.isSelected && currentTag != null) {
+                                    ServiceClient.deleteTag(currentTag.id)
+                                }
+                            }
+                        }
                     }
                 }
             }
 
             ServiceClient.getTags().thenApply { tags ->
                 val itemTags = tags.filter { t -> t.itemId == id }
-                val tagGroup = view.findViewById<CollectionPicker>(R.id.ItemTagGroup)
+
                 ServiceClient.getTagTypes().thenApply { tagTypes ->
                     tagTypes.forEach { tagType ->
                         val item = Item(tagType.id.toString(), tagType.name)
