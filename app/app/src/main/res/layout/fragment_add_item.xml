@@ -69,7 +69,7 @@
 
         <Button
             android:id="@+id/AddItemScan"
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Scan Item Sticker"
@@ -80,7 +80,7 @@
 
         <Button
             android:id="@+id/AddItem"
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Add Item"
