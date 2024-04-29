@@ -37,24 +37,9 @@
             android:hint="Description"
             android:inputType="textMultiLine"
             android:textColorHint="#9C27B0"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/todo"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/todo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:text="Drop down menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.449"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ItemName"
-            app:layout_constraintVertical_bias="0.021" />
+            app:layout_constraintTop_toBottomOf="@+id/AddItemDroq" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -88,12 +73,12 @@
             android:id="@+id/AddItemScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="28dp"
             android:text="Scan Item Sticker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddItemCode" />
+            app:layout_constraintTop_toBottomOf="@+id/ItemDescription" />
 
         <Button
             android:id="@+id/AddItem"
@@ -106,17 +91,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/AddItemScan" />
 
-        <TextView
-            android:id="@+id/AddItemCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Code"
-            android:visibility="invisible"
+        <Spinner
+            android:id="@+id/AddItemDroq"
+            android:layout_width="208dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ItemDescription"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toBottomOf="@+id/ItemName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
