@@ -75,7 +75,11 @@
             android:layout_width="213dp"
             android:layout_height="206dp"
             android:layout_marginTop="32dp"
-            android:src="@drawable/tagtoollogo"
+            android:adjustViewBounds="false"
+            android:backgroundTint="#00FFFFFF"
+            android:rotationX="-2"
+            android:scaleType="centerInside"
+            android:src="@drawable/tag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
