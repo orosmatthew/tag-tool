@@ -14,19 +14,19 @@
             android:id="@+id/AddNew"
             android:layout_width="226dp"
             android:layout_height="52dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="42dp"
             android:text="📝 Add New Item"
             android:textColorLink="#FF9800"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/WelcomeName" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <Button
             android:id="@+id/MyListButton"
             android:layout_width="226dp"
             android:layout_height="52dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="42dp"
             android:text="📃 My List"
             android:textColorLink="#FF9800"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
             android:id="@+id/ScanCodeButton"
             android:layout_width="226dp"
             android:layout_height="52dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="42dp"
             android:text="📸 Scan Item"
             android:textColorLink="#FF9800"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,29 +46,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/MyListButton" />
 
-        <TextView
-            android:id="@+id/WelcomeName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/goblin_one"
-            android:text="Welcome User"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <Button
             android:id="@+id/ManageTagsButton"
             android:layout_width="226dp"
             android:layout_height="52dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="42dp"
             android:text="🏷️ Manage Tags"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ScanCodeButton" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="212dp"
+            android:layout_height="219dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/tag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
