@@ -1,5 +1,6 @@
 package site.pixeled.tagtool
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,9 @@ class WelcomeUserFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_scannerFragment)
         }
+       view.findViewById<Button>(R.id.ManageTagsButton).setOnClickListener{
+           Navigation.findNavController(view).navigate(R.id.action_welcomeUserFragment_to_tagListFragment)
+       }
         return view
     }
 }

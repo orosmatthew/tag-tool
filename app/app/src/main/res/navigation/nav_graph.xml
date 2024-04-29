@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_welcomeUserFragment_to_myListFragment"
             app:destination="@id/myListFragment" />
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_tagListFragment"
+            app:destination="@id/tagListFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
@@ -139,5 +142,14 @@
         <action
             android:id="@+id/action_easterEggFragment_to_errorNotFoundFragment"
             app:destination="@id/errorNotFoundFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tagListFragment"
+        android:name="site.pixeled.tagtool.TagListFragment"
+        android:label="fragment_tag_list"
+        tools:layout="@layout/fragment_tag_list" >
+        <action
+            android:id="@+id/action_tagListFragment_to_welcomeUserFragment"
+            app:destination="@id/welcomeUserFragment" />
     </fragment>
 </navigation>
