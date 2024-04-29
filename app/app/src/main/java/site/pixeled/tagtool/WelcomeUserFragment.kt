@@ -40,7 +40,7 @@ class WelcomeUserFragment : Fragment() {
                 .navigate(R.id.action_welcomeUserFragment_to_scannerFragment)
         }
        view.findViewById<Button>(R.id.ManageTagsButton).setOnClickListener{
-           Navigation.findNavController(view).navigate(R.id.action_welcomeUserFragment_to_tagListFragment)
+           Navigation.findNavController(view).navigate(R.id.action_tagListFragment_to_welcomeUserFragment)
        }
         return view
     }
