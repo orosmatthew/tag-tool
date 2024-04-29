@@ -42,8 +42,8 @@
 
         <Button
             android:id="@+id/LogInButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="182dp"
+            android:layout_height="52dp"
             android:clickable="true"
             android:text="Log In"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,8 +54,8 @@
 
         <Button
             android:id="@+id/NewAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="182dp"
+            android:layout_height="52dp"
             android:layout_marginTop="28dp"
             android:text="Create an Account"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -67,8 +67,8 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="211dp"
-            android:layout_height="158dp"
+            android:layout_width="264dp"
+            android:layout_height="202dp"
             android:layout_marginTop="56dp"
             android:src="@drawable/tag"
             app:layout_constraintEnd_toEndOf="parent"

@@ -27,8 +27,8 @@
 
         <Button
             android:id="@+id/AddItemError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="165dp"
+            android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:text="Add Item"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,8 @@
 
         <Button
             android:id="@+id/ScanAgainError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="165dp"
+            android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:text="Scan Again"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,8 +62,8 @@
 
         <Button
             android:id="@+id/HomeFromError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="165dp"
+            android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:text="Back to Home"
             app:layout_constraintEnd_toEndOf="parent"

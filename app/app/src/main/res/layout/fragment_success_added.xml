@@ -40,9 +40,9 @@
 
         <Button
             android:id="@+id/HomeSuccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_width="165dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
             android:text="HomeScreen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +50,8 @@
 
         <Button
             android:id="@+id/AddAnother"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="165dp"
+            android:layout_height="52dp"
             android:layout_marginTop="32dp"
             android:text="Add Another Item"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +62,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:src="@drawable/tag"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

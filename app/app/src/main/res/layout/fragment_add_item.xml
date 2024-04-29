@@ -17,7 +17,6 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Item Name"
             android:inputType="textMultiLine"
             android:textColorHint="#9C27B0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,6 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Description"
             android:inputType="textMultiLine"
             android:textColorHint="#9C27B0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +67,7 @@
 
         <Button
             android:id="@+id/AddItemScan"
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Scan Item Sticker"
@@ -80,7 +78,7 @@
 
         <Button
             android:id="@+id/AddItem"
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Add Item"
@@ -160,8 +158,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="←"
-            android:textSize="20sp"
+            android:text="⬅️"
+            android:textSize="32sp"
             app:layout_constraintEnd_toStartOf="@+id/additemTitle"
             app:layout_constraintHorizontal_bias="0.274"
             app:layout_constraintStart_toStartOf="parent"
