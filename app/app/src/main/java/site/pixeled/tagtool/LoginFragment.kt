@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 
 
 class LoginFragment : Fragment() {
@@ -18,6 +19,10 @@ class LoginFragment : Fragment() {
     ): View? {
         ServiceClient.initQueue(requireActivity())
         val view = inflater.inflate(R.layout.fragment_login, container, false)
+
+        view.findViewById<Button>(R.id.NewAccount).setOnClickListener {
+            view.findNavController().navigate(R.id.action_loginFragment_to_newAccountFragment)
+        }
 
         view.findViewById<Button>(R.id.LogInButton).setOnClickListener {
 
@@ -40,6 +45,11 @@ class LoginFragment : Fragment() {
 
             }
         }
+
+        view.findViewById<Button>(R.id.NewAccount).setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_newAccountFragment)
+        }
+
         return view
     }
 }

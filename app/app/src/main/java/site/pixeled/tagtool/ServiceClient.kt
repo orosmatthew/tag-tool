@@ -1,9 +1,9 @@
+@file:Suppress("unused")
+
 package site.pixeled.tagtool
 
 import android.app.Activity
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
@@ -42,8 +42,6 @@ object ServiceClient {
         return Gson().fromJson(json.toString(), type)
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.N)
     fun authUser(username: String, password: String): CompletableFuture<Int?> {
         val future = CompletableFuture<Int?>()
         val json = JSONObject()
@@ -61,7 +59,6 @@ object ServiceClient {
         return future
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun getItem(id: Int): CompletableFuture<Item?> {
         val future = CompletableFuture<Item?>()
         val request = AuthRequest(Request.Method.GET, "$apiUrl/Item/$id", null, { res ->
@@ -115,7 +112,7 @@ object ServiceClient {
         json.put("id", id)
         json.put("name", name)
         json.put("description", description)
-        json.put("codeData", codeData)
+        json.put("codeData", codeData ?: JSONObject.NULL)
         val request = AuthRequest(Request.Method.PUT, "$apiUrl/Item/$id", json, { res ->
             val status = gsonParseApiResponse<Unit>(res).status
             future.complete(status == 0)
@@ -151,6 +148,7 @@ object ServiceClient {
             Log.e("POST Note", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
@@ -222,6 +220,7 @@ object ServiceClient {
             Log.e("POST TagType", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
@@ -293,6 +292,7 @@ object ServiceClient {
             Log.e("POST Tag", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
@@ -347,6 +347,22 @@ object ServiceClient {
             future.complete(tags)
         }, { err ->
             Log.e("GET Tags", err.toString())
+            future.completeExceptionally(err)
+        })
+        sendRequest(request)
+        return future
+    }
+
+    fun createUser(username: String, password: String): CompletableFuture<Boolean> {
+        val future = CompletableFuture<Boolean>()
+        val json = JSONObject()
+        json.put("username", username)
+        json.put("password", password)
+        val request = AuthRequest(Request.Method.POST, "$apiUrl/User", json, { res ->
+            val status = gsonParseApiResponse<Unit>(res).status
+            future.complete(status == 0)
+        }, { err ->
+            Log.e("POST User", err.toString())
             future.completeExceptionally(err)
         })
         sendRequest(request)
