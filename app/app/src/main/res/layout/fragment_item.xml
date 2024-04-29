@@ -16,10 +16,11 @@
             android:layout_height="27dp"
             android:layout_marginTop="56dp"
             android:text="Tags"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SelectedItemDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -46,16 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/Notes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="Notes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tags" />
-
         <Button
             android:id="@+id/SelectedItemDelete"
             android:layout_width="wrap_content"
@@ -72,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="68dp"
             android:layout_marginBottom="76dp"
-            android:text="Edit"
+            android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -80,13 +71,58 @@
             android:id="@+id/SelectedItemDescription"
             android:layout_width="249dp"
             android:layout_height="120dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/goblin_one"
+            android:text="Description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/goblin_one"
+            android:text="Tags"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SelectedItemDescription" />
+
+        <Button
+            android:id="@+id/BackfromItem"
+            android:layout_width="85dp"
+            android:layout_height="58dp"
+            android:includeFontPadding="false"
+            android:insetTop="0sp"
+            android:insetBottom="0sp"
+            android:padding="0sp"
+            android:paddingStart="0sp"
+            android:paddingLeft="0dp"
+            android:paddingTop="0sp"
+            android:paddingEnd="0sp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            android:text="⬅️"
+            android:textAlignment="center"
+            android:textColorLink="#03A9F4"
+            android:textSize="32sp"
+            app:iconPadding="0sp"
+            app:layout_constraintStart_toStartOf="@+id/toolbar2"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

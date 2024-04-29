@@ -14,51 +14,32 @@
             android:id="@+id/ItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Item Name"
             android:inputType="textMultiLine"
             android:textColorHint="#9C27B0"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <EditText
             android:id="@+id/ItemDescription"
             android:layout_width="301dp"
             android:layout_height="113dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Description"
             android:inputType="textMultiLine"
             android:textColorHint="#9C27B0"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/todo"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/todo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:text="Drop down menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.449"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ItemName"
-            app:layout_constraintVertical_bias="0.021" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
@@ -85,25 +66,104 @@
             app:layout_constraintVertical_bias="0.022" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:id="@+id/AddItemScan"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="4dp"
             android:text="Scan Item Sticker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ItemDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/AddItemCode" />
 
         <Button
             android:id="@+id/AddItem"
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:text="Add Item"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/AddItemScan" />
+
+        <com.anton46.collectionitempicker.CollectionPicker
+            android:id="@+id/TagGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:cp_addIcon="@android:drawable/ic_menu_add"
+            app:cp_cancelIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:cp_itemBackgroundNormal="#6750a4"
+            app:cp_itemBackgroundPressed="@color/red"
+            app:cp_itemMargin="5dp"
+            app:cp_simplified="false"
+            app:cp_textPaddingBottom="5dp"
+            app:cp_textPaddingLeft="10dp"
+            app:cp_textPaddingRight="10dp"
+            app:cp_textPaddingTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/AddItemCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ItemDescription" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/goblin_one"
+            android:text="Item Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/goblin_one"
+            android:text="Tags"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ItemName" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/goblin_one"
+            android:text="Description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TagGroup" />
+
+        <Button
+            android:id="@+id/BackhomefromAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="⬅️"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toStartOf="@+id/additemTitle"
+            app:layout_constraintHorizontal_bias="0.274"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
