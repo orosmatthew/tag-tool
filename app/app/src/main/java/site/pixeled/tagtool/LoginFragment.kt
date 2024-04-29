@@ -45,6 +45,11 @@ class LoginFragment : Fragment() {
 
             }
         }
+
+        view.findViewById<Button>(R.id.NewAccount).setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_newAccountFragment)
+        }
+
         return view
     }
 }
