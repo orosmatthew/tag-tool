@@ -23,6 +23,10 @@ class WelcomeUserFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_addItemFragment)
         }
+        view.findViewById<Button>(R.id.ScanCodeButton).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_welcomeUserFragment_to_scannerFragment)
+        }
         return view
     }
 }
