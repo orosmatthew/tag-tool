@@ -1,9 +1,9 @@
+@file:Suppress("unused")
+
 package site.pixeled.tagtool
 
 import android.app.Activity
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
@@ -42,8 +42,6 @@ object ServiceClient {
         return Gson().fromJson(json.toString(), type)
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.N)
     fun authUser(username: String, password: String): CompletableFuture<Int?> {
         val future = CompletableFuture<Int?>()
         val json = JSONObject()
@@ -61,7 +59,6 @@ object ServiceClient {
         return future
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun getItem(id: Int): CompletableFuture<Item?> {
         val future = CompletableFuture<Item?>()
         val request = AuthRequest(Request.Method.GET, "$apiUrl/Item/$id", null, { res ->
@@ -151,6 +148,7 @@ object ServiceClient {
             Log.e("POST Note", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
@@ -222,6 +220,7 @@ object ServiceClient {
             Log.e("POST TagType", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
@@ -293,6 +292,7 @@ object ServiceClient {
             Log.e("POST Tag", err.toString())
             future.completeExceptionally(err)
         })
+        sendRequest(request)
         return future
     }
 
