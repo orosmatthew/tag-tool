@@ -13,7 +13,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="76dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -37,7 +37,7 @@
 
         <Button
             android:id="@+id/HomeAgainTagList"
-            android:layout_width="wrap_content"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="⬅️"
@@ -60,13 +60,13 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/goblin_one"
             android:text="My List"
             android:textColor="#FBFBFB"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/toolbar3"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.23"
             app:layout_constraintStart_toEndOf="@+id/HomeAgainTagList"
             app:layout_constraintTop_toTopOf="parent" />
 

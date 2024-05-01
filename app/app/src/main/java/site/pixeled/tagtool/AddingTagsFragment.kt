@@ -34,7 +34,6 @@ class AddingTagsFragment : Fragment() {
                     toast.show()
                 }
             }
-
         }
         return view;
     }
