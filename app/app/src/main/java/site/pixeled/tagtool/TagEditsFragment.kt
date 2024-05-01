@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 class TagEditsFragment : Fragment() {
@@ -62,6 +63,7 @@ class TagEditsFragment : Fragment() {
         view?.findViewById<Button>(R.id.backtoTags)?.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_tagEditsFragment_to_tagListFragment)
         }
+
 
         return view
     }
