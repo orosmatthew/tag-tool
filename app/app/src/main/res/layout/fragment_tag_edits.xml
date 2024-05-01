@@ -12,7 +12,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar5"
-            android:layout_width="439dp"
+            android:layout_width="451dp"
             android:layout_height="76dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
@@ -73,9 +73,9 @@
 
         <Button
             android:id="@+id/SaveTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
+            android:layout_width="123dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="48dp"
             android:layout_marginBottom="52dp"
             android:text="Save Edit"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -83,9 +83,9 @@
 
         <Button
             android:id="@+id/DeleteTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"
+            android:layout_width="123dp"
+            android:layout_height="67dp"
+            android:layout_marginEnd="52dp"
             android:layout_marginBottom="52dp"
             android:text="Delete"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -13,7 +13,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="76dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -93,7 +93,7 @@
 
         <Button
             android:id="@+id/BackfromItem"
-            android:layout_width="85dp"
+            android:layout_width="92dp"
             android:layout_height="58dp"
             android:layout_marginTop="4dp"
             android:includeFontPadding="false"
@@ -111,6 +111,8 @@
             android:textColorLink="#03A9F4"
             android:textSize="32sp"
             app:iconPadding="0sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="@+id/toolbar2"
             app:layout_constraintTop_toTopOf="parent" />
 
