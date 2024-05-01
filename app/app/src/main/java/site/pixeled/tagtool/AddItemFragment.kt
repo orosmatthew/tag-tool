@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -58,21 +59,21 @@ class AddItemFragment : Fragment() {
 
         view.findViewById<Button>(R.id.AddItem).setOnClickListener {
             val name = view.findViewById<EditText>(R.id.ItemName).text.toString()
-            val description = view.findViewById<EditText>(R.id.ItemDescription).text.toString()
-
-            ServiceClient.createItem(name, description, scannedCode).thenApply { itemId ->
-                itemId?.let {
-                    val selectedIds =
-                        tagGroup.items.filter { i -> i.isSelected }.map { i -> i.id.toInt() }
-                    selectedIds.forEach { id ->
-                        ServiceClient.createTag(id, it)
+            if (name.isEmpty()) {
+                Toast.makeText(context, "Please enter a name", Toast.LENGTH_SHORT).show()
+            } else {
+                val description = view.findViewById<EditText>(R.id.ItemDescription).text.toString()
+                ServiceClient.createItem(name, description, scannedCode).thenApply { itemId ->
+                    itemId?.let {
+                        val selectedIds =
+                            tagGroup.items.filter { i -> i.isSelected }.map { i -> i.id.toInt() }
+                        selectedIds.forEach { id ->
+                            ServiceClient.createTag(id, it)
+                        }
                     }
+                    view.findNavController().popBackStack()
                 }
-
-                view.findNavController().popBackStack()
             }
-
-
         }
         return view
     }

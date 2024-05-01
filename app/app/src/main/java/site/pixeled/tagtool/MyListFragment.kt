@@ -56,13 +56,13 @@ class MyListFragment : Fragment() {
     private fun initItemList(view: View, items: Array<Item>) {
         val itemList = view.findViewById<RecyclerView>(R.id.ItemList)
         itemList.layoutManager = LinearLayoutManager(context)
-        itemList.adapter =
-            ItemRecyclerViewAdapter(items.sortedBy { it.name.lowercase() }) { row ->
-                val bundle = Bundle()
-                bundle.putInt("itemId", items[row].id)
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_myListFragment_to_itemFragment, bundle)
-            }
+        val sortedItems = items.sortedBy { it.name.lowercase() }
+        itemList.adapter = ItemRecyclerViewAdapter(sortedItems) { row ->
+            val bundle = Bundle()
+            bundle.putInt("itemId", sortedItems[row].id)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_myListFragment_to_itemFragment, bundle)
+        }
     }
 
     override fun onCreateView(
