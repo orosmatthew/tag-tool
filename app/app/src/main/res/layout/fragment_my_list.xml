@@ -23,8 +23,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ItemList"
-            android:layout_width="362dp"
-            android:layout_height="558dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -33,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/MyListTags" />
 
         <Button
             android:id="@+id/HomeAgainTagList"
@@ -47,11 +47,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="341dp"
-            android:layout_height="31dp"
-            android:layout_marginTop="28dp"
+        <com.anton46.collectionitempicker.CollectionPicker
+            android:id="@+id/MyListTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:cp_addIcon="@android:drawable/ic_menu_add"
+            app:cp_cancelIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:cp_itemBackgroundNormal="#6750a4"
+            app:cp_itemBackgroundPressed="@color/red"
+            app:cp_itemMargin="5dp"
+            app:cp_simplified="false"
+            app:cp_textPaddingBottom="5dp"
+            app:cp_textPaddingLeft="10dp"
+            app:cp_textPaddingRight="10dp"
+            app:cp_textPaddingTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
@@ -60,14 +71,13 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:fontFamily="@font/goblin_one"
             android:text="My List"
             android:textColor="#FBFBFB"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/toolbar3"
-            app:layout_constraintHorizontal_bias="0.23"
-            app:layout_constraintStart_toEndOf="@+id/HomeAgainTagList"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
