@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import com.anton46.collectionitempicker.CollectionPicker
 import site.pixeled.tagtool.model.Item
 import site.pixeled.tagtool.model.Tag
+import site.pixeled.tagtool.model.TagType
 
 class ItemFragment : Fragment() {
 
@@ -50,19 +51,22 @@ class ItemFragment : Fragment() {
         }
     }
 
-    private fun initTags(tags: Array<Tag>, tagGroupView: CollectionPicker) {
-        val itemTags = tags.filter { t -> t.itemId == id }
-        ServiceClient.getTagTypes().thenApply { tagTypes ->
-            tagTypes.forEach { tagType ->
-                val item = com.anton46.collectionitempicker.Item(
-                    tagType.id.toString(),
-                    tagType.name
-                )
-                item.isSelected = itemTags.find { t -> t.tagTypeId == tagType.id } != null
-                tagGroupView.items.add(item)
-            }
-            tagGroupView.drawItemView()
+    private fun initTags(
+        itemId: Int,
+        tags: Array<Tag>,
+        tagTypes: Array<TagType>,
+        tagGroupView: CollectionPicker
+    ) {
+        val itemTags = tags.filter { t -> t.itemId == itemId }
+        tagTypes.forEach { tagType ->
+            val item = com.anton46.collectionitempicker.Item(
+                tagType.id.toString(),
+                tagType.name
+            )
+            item.isSelected = itemTags.find { t -> t.tagTypeId == tagType.id } != null
+            tagGroupView.items.add(item)
         }
+        tagGroupView.drawItemView()
     }
 
     override fun onCreateView(
@@ -86,7 +90,9 @@ class ItemFragment : Fragment() {
             }
 
             ServiceClient.getTags().thenApply { tags ->
-                initTags(tags, tagGroupView)
+                ServiceClient.getTagTypes().thenApply { tagTypes ->
+                    initTags(itemId, tags, tagTypes, tagGroupView)
+                }
             }
 
             deleteButtonView.setOnClickListener {
