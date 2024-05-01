@@ -24,8 +24,9 @@ class AddItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add_item, container, false)
-
         val codeTextView = view.findViewById<TextView>(R.id.AddItemCode)
+        val tagGroup = view.findViewById<CollectionPicker>(R.id.TagGroup)
+
         codeTextView.visibility = INVISIBLE
         var scannedCode: String? = null
 
@@ -40,7 +41,6 @@ class AddItemFragment : Fragment() {
             Navigation.findNavController(scanView).popBackStack()
         }
 
-        val tagGroup = view.findViewById<CollectionPicker>(R.id.TagGroup)
         ServiceClient.getTagTypes().thenApply { tagTypes ->
             tagTypes.forEach { tagType ->
                 tagGroup.items.add(Item(tagType.id.toString(), tagType.name))

@@ -3,7 +3,6 @@
 package site.pixeled.tagtool
 
 import android.app.Activity
-import android.text.Editable
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -15,7 +14,6 @@ import org.json.JSONObject
 import site.pixeled.tagtool.model.ApiResponse
 import site.pixeled.tagtool.model.AuthResponseData
 import site.pixeled.tagtool.model.Item
-import site.pixeled.tagtool.model.Note
 import site.pixeled.tagtool.model.Tag
 import site.pixeled.tagtool.model.TagType
 import java.util.concurrent.CompletableFuture
@@ -147,63 +145,6 @@ object ServiceClient {
             future.complete(status == 0)
         }, { err ->
             Log.e("POST Note", err.toString())
-            future.completeExceptionally(err)
-        })
-        sendRequest(request)
-        return future
-    }
-
-    fun getNote(id: Int): CompletableFuture<Note?> {
-        val future = CompletableFuture<Note?>()
-        val request = AuthRequest(Request.Method.GET, "$apiUrl/Note/$id", null, { res ->
-            val note = gsonParseApiResponse<Array<Note>>(res).data
-            future.complete(note.firstOrNull())
-        }, { err ->
-            Log.e("GET Note", err.toString())
-            future.completeExceptionally(err)
-        })
-        sendRequest(request)
-        return future
-    }
-
-    fun updateNote(
-        id: Int?, content: String?
-    ): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
-        val json = JSONObject()
-        json.put("id", id)
-        json.put("content", content)
-        val request = AuthRequest(Request.Method.PUT, "$apiUrl/Note/$id", json, { res ->
-            val status = gsonParseApiResponse<Unit>(res).status
-            future.complete(status == 0)
-        }, { err ->
-            Log.e("PUT Note", err.toString())
-            future.completeExceptionally(err)
-        })
-        sendRequest(request)
-        return future
-    }
-
-    fun deleteNote(id: Int): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
-        val request = AuthRequest(Request.Method.DELETE, "$apiUrl/Note/$id", null, { res ->
-            val status = gsonParseApiResponse<Unit>(res).status
-            future.complete(status == 0)
-        }, { err ->
-            Log.e("DELETE Note", err.toString())
-            future.completeExceptionally(err)
-        })
-        sendRequest(request)
-        return future
-    }
-
-    fun getNotes(): CompletableFuture<Array<Note>> {
-        val future = CompletableFuture<Array<Note>>()
-        val request = AuthRequest(Request.Method.GET, "$apiUrl/Notes", null, { res ->
-            val notes = gsonParseApiResponse<Array<Note>>(res).data
-            future.complete(notes)
-        }, { err ->
-            Log.e("GET Notes", err.toString())
             future.completeExceptionally(err)
         })
         sendRequest(request)
