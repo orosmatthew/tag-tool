@@ -160,5 +160,29 @@
         <action
             android:id="@+id/action_tagListFragment_to_welcomeUserFragment"
             app:destination="@id/welcomeUserFragment" />
+        <action
+            android:id="@+id/action_tagListFragment_to_tagEditsFragment"
+            app:destination="@id/tagEditsFragment" />
+        <action
+            android:id="@+id/action_tagListFragment_to_addingTagsFragment"
+            app:destination="@id/addingTagsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tagEditsFragment"
+        android:name="site.pixeled.tagtool.TagEditsFragment"
+        android:label="fragment_tag_edits"
+        tools:layout="@layout/fragment_tag_edits" >
+        <action
+            android:id="@+id/action_tagEditsFragment_to_tagListFragment"
+            app:destination="@id/tagListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addingTagsFragment"
+        android:name="site.pixeled.tagtool.AddingTagsFragment"
+        android:label="fragment_adding_tags"
+        tools:layout="@layout/fragment_adding_tags" >
+        <action
+            android:id="@+id/action_addingTagsFragment_to_tagListFragment"
+            app:destination="@id/tagListFragment" />
     </fragment>
 </navigation>

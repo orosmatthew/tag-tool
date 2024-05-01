@@ -40,38 +40,13 @@ class AddItemFragment : Fragment() {
             Navigation.findNavController(scanView).popBackStack()
         }
 
-//        val tagDrop = view.findViewById<Spinner>(R.id.AddItemDrop)
+        val tagGroup = view.findViewById<CollectionPicker>(R.id.TagGroup)
         ServiceClient.getTagTypes().thenApply { tagTypes ->
-            val tagGroup = view.findViewById<CollectionPicker>(R.id.TagGroup)
-            val items: MutableList<Item> = ArrayList()
             tagTypes.forEach { tagType ->
-                items.add(Item(tagType.id.toString(), tagType.name))
+                tagGroup.items.add(Item(tagType.id.toString(), tagType.name))
             }
-            tagGroup.items = items
             tagGroup.drawItemView()
         }
-//            val adapter = ArrayAdapter(
-//                view.context,
-//                android.R.layout.simple_spinner_item,
-//                tagTypes.map { t -> t.name })
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            tagDrop.setAdapter(adapter)
-//
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            tagDrop.adapter = adapter
-//
-//            tagDrop.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//                override fun onItemSelected(
-//                    parent: AdapterView<*>?, view: View?, position: Int, id: Long
-//                ) {
-//                    val selectedItem = tagTypes[position]
-//                }
-//
-//                override fun onNothingSelected(parent: AdapterView<*>?) {
-//                    // Handle the case when nothing is selected (optional)
-//                }
-//            }
-//        }
 
         view.findViewById<Button>(R.id.AddItemScan).setOnClickListener {
             view.findNavController().navigate(R.id.action_addItemFragment_to_scannerFragment)
@@ -84,9 +59,20 @@ class AddItemFragment : Fragment() {
         view.findViewById<Button>(R.id.AddItem).setOnClickListener {
             val name = view.findViewById<EditText>(R.id.ItemName).text.toString()
             val description = view.findViewById<EditText>(R.id.ItemDescription).text.toString()
-            ServiceClient.createItem(name, description, scannedCode).thenApply {
+
+            ServiceClient.createItem(name, description, scannedCode).thenApply { itemId ->
+                itemId?.let {
+                    val selectedIds =
+                        tagGroup.items.filter { i -> i.isSelected }.map { i -> i.id.toInt() }
+                    selectedIds.forEach { id ->
+                        ServiceClient.createTag(id, it)
+                    }
+                }
+
                 view.findNavController().popBackStack()
             }
+
+
         }
         return view
     }
