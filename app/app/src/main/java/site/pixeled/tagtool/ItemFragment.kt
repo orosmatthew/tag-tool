@@ -35,7 +35,12 @@ class ItemFragment : Fragment() {
                     view.findViewById<TextView>(R.id.SelectedItemName).text = it.name
                     description.setText(it.description ?: "")
                     view.findViewById<Button>(R.id.SelectedItemEdit).setOnClickListener {
-                        ServiceClient.updateItem(id, item.name, description.text.toString(), null)
+                        ServiceClient.updateItem(
+                            id,
+                            item.name,
+                            description.text.toString(),
+                            item.codeData
+                        )
                         ServiceClient.getTags().thenApply { currentTags ->
                             val currentItemTags = currentTags.filter { t -> t.itemId == id }
                             tagGroup.items.forEach { tagGroupItem ->
