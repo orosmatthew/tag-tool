@@ -23,7 +23,7 @@ class MyListFragment : Fragment() {
         val itemList = view.findViewById<RecyclerView>(R.id.ItemList)
         ServiceClient.getItems().thenApply { items ->
             itemList.layoutManager = LinearLayoutManager(context)
-            itemList.adapter = ItemRecyclerViewAdapter(items) { row ->
+            itemList.adapter = ItemRecyclerViewAdapter(items.sortedBy { it.name.lowercase() }) { row ->
                 val bundle = Bundle()
                 bundle.putInt("itemId", items[row].id)
                 Navigation.findNavController(view)

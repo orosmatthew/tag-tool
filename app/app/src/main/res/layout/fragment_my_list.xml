@@ -39,7 +39,6 @@
             android:id="@+id/HomeAgainTagList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:text="⬅️"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +59,13 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/goblin_one"
             android:text="My List"
             android:textColor="#FBFBFB"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/toolbar3"
-            app:layout_constraintHorizontal_bias="0.238"
-            app:layout_constraintStart_toEndOf="@+id/HomeAgainTagList"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
