@@ -20,4 +20,10 @@ class UserController
         $success = UserModel::createUser($user);
         return new Response(null, null, $success ? 0 : 1);
     }
+
+    static public function delete(Request $req): Response
+    {
+        $success = UserModel::deleteUser($req->userId);
+        return new Response(null, null, $success ? 0 : 1);
+    }
 }
