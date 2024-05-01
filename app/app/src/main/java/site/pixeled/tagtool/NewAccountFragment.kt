@@ -23,15 +23,12 @@ class NewAccountFragment : Fragment() {
             val password = view.findViewById<EditText>(R.id.NewPassword1).text.toString()
             val confirmation = view.findViewById<EditText>(R.id.NewPassword2).text.toString()
 
-            if (password.equals(confirmation)) {
-                ServiceClient.createUser(username, password).thenApply { sucessful ->
-                    if (!sucessful) {
-                        val toast =
-                            Toast.makeText(
-                                requireContext(),
-                                "User already exists!",
-                                Toast.LENGTH_LONG
-                            )
+            if (password == confirmation) {
+                ServiceClient.createUser(username, password).thenApply { successful ->
+                    if (!successful) {
+                        val toast = Toast.makeText(
+                            requireContext(), "User already exists!", Toast.LENGTH_LONG
+                        )
                         toast.show()
                     } else {
                         Navigation.findNavController(view)

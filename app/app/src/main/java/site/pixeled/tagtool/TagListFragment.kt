@@ -21,7 +21,7 @@ class TagListFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_tagListFragment_to_welcomeUserFragment)
         }
-        view.findViewById<Button>(R.id.Addtag).setOnClickListener() {
+        view.findViewById<Button>(R.id.Addtag).setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_tagListFragment_to_addingTagsFragment)
         }
