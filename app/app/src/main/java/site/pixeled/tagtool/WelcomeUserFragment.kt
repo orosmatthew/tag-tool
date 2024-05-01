@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.Navigation
 
 
@@ -46,6 +47,26 @@ class WelcomeUserFragment : Fragment() {
         view.findViewById<Button>(R.id.ManageTagsButton).setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_tagListFragment2)
+        }
+
+        view.findViewById<Button>(R.id.DeleteAccountButton).setOnClickListener {
+            val dialog = AlertDialog.Builder(requireContext())
+            dialog.setTitle("Delete Account")
+            dialog.setMessage("Are you sure you want to delete your account?")
+            dialog.setPositiveButton("Yes") { _, _ ->
+                ServiceClient.deleteUser().thenApply {
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_welcomeUserFragment_to_loginFragment)
+                }
+            }
+            dialog.setNegativeButton("No", null)
+            dialog.show()
+        }
+        view.findViewById<Button>(R.id.LogoutButton).setOnClickListener {
+            AuthRequest.username = ""
+            AuthRequest.password = ""
+            Navigation.findNavController(view)
+                .navigate(R.id.action_welcomeUserFragment_to_loginFragment)
         }
         return view
     }

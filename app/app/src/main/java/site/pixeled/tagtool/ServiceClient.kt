@@ -136,21 +136,6 @@ object ServiceClient {
         return future
     }
 
-    fun createNote(content: String): CompletableFuture<Boolean> {
-        val future = CompletableFuture<Boolean>()
-        val json = JSONObject()
-        json.put("content", content)
-        val request = AuthRequest(Request.Method.POST, "$apiUrl/Note", json, { res ->
-            val status = gsonParseApiResponse<Unit>(res).status
-            future.complete(status == 0)
-        }, { err ->
-            Log.e("POST Note", err.toString())
-            future.completeExceptionally(err)
-        })
-        sendRequest(request)
-        return future
-    }
-
     fun createTagType(name: String): CompletableFuture<Boolean> {
         val future = CompletableFuture<Boolean>()
         val json = JSONObject()
@@ -303,6 +288,19 @@ object ServiceClient {
             future.complete(status == 0)
         }, { err ->
             Log.e("POST User", err.toString())
+            future.completeExceptionally(err)
+        })
+        sendRequest(request)
+        return future
+    }
+
+    fun deleteUser(): CompletableFuture<Boolean> {
+        val future = CompletableFuture<Boolean>()
+        val request = AuthRequest(Request.Method.DELETE, "$apiUrl/User", null, { res ->
+            val status = gsonParseApiResponse<Unit>(res).status
+            future.complete(status == 0)
+        }, { err ->
+            Log.e("DELETE User", err.toString())
             future.completeExceptionally(err)
         })
         sendRequest(request)
