@@ -8,13 +8,12 @@ import site.pixeled.tagtool.databinding.FragmentListItemBinding
 import site.pixeled.tagtool.model.Item
 
 class ItemRecyclerViewAdapter(
-    private val items: Array<Item>, private val onRowSelect: ((Int) -> Unit)?
+    private val items: List<Item>, private val onRowSelect: ((Int) -> Unit)?
 ) : RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>() {
 
     inner class ViewHolder(binding: FragmentListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.listItemId
-        val nameView: TextView = binding.listItemName
+        val nameView: TextView = binding.ListItemName
 
         init {
             binding.root.setOnClickListener {
@@ -40,7 +39,6 @@ class ItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.idView.text = item.id.toString()
         holder.nameView.text = item.name
     }
 }
