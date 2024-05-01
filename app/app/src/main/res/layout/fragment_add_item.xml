@@ -55,16 +55,15 @@
             android:id="@+id/additemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/goblin_one"
             android:text="Add Item"
             android:textColor="#FBFBFB"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.035" />
+            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintStart_toEndOf="@+id/BackhomefromAdd"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/AddItemScan"
@@ -161,8 +160,6 @@
             android:layout_marginTop="4dp"
             android:text="⬅️"
             android:textSize="32sp"
-            app:layout_constraintEnd_toStartOf="@+id/additemTitle"
-            app:layout_constraintHorizontal_bias="0.274"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
