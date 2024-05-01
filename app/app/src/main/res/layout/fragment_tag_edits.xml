@@ -12,8 +12,8 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar5"
-            android:layout_width="446dp"
-            android:layout_height="88dp"
+            android:layout_width="439dp"
+            android:layout_height="76dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -23,13 +23,13 @@
 
         <Button
             android:id="@+id/backtoTags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="92dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="8dp"
             android:text="⬅️"
             android:textSize="32sp"
             app:layout_constraintEnd_toStartOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
