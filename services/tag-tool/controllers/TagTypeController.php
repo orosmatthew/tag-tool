@@ -37,6 +37,7 @@ class TagTypeController
     static public function put(Request $req): Response
     {
         $tagType = new TagType($req->data);
+        $tagType->userId = $req->userId;
         $tagType->id = $req->id;
         $success = TagTypeModel::updateTagType($tagType);
         return new Response(null, null, $success ? 0 : 1);
