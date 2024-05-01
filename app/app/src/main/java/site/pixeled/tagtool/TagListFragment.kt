@@ -21,6 +21,10 @@ class TagListFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_tagListFragment_to_welcomeUserFragment)
         }
+        view.findViewById<Button>(R.id.Addtag).setOnClickListener() {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_tagListFragment_to_addingTagsFragment)
+        }
         val tagList = view.findViewById<RecyclerView>(R.id.tag_list)
         ServiceClient.getTagTypes().thenApply {tags ->
             tagList.layoutManager = LinearLayoutManager(context)

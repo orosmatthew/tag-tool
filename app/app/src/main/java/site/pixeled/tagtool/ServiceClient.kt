@@ -241,7 +241,6 @@ object ServiceClient {
     fun updateTagType(id: Int?, name: String?): CompletableFuture<Boolean> {
         val future = CompletableFuture<Boolean>()
         val json = JSONObject()
-        json.put("id", id)
         json.put("name", name)
         val request = AuthRequest(Request.Method.PUT, "$apiUrl/TagType/$id", json, { res ->
             val status = gsonParseApiResponse<Unit>(res).status
