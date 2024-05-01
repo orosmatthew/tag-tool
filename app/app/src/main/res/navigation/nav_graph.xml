@@ -151,6 +151,9 @@
         <action
             android:id="@+id/action_easterEggFragment_to_errorNotFoundFragment"
             app:destination="@id/errorNotFoundFragment" />
+        <action
+            android:id="@+id/action_easterEggFragment_to_baldFragment"
+            app:destination="@id/baldFragment" />
     </fragment>
     <fragment
         android:id="@+id/tagListFragment"
@@ -184,5 +187,17 @@
         <action
             android:id="@+id/action_addingTagsFragment_to_tagListFragment"
             app:destination="@id/tagListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/baldFragment"
+        android:name="site.pixeled.tagtool.BaldFragment"
+        android:label="fragment_bald"
+        tools:layout="@layout/fragment_bald" >
+        <action
+            android:id="@+id/action_baldFragment_to_easterEggFragment"
+            app:destination="@id/easterEggFragment" />
+        <action
+            android:id="@+id/action_baldFragment_to_errorNotFoundFragment"
+            app:destination="@id/errorNotFoundFragment" />
     </fragment>
 </navigation>
