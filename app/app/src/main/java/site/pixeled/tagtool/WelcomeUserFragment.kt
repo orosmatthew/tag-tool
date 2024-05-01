@@ -27,20 +27,26 @@ class WelcomeUserFragment : Fragment() {
         view.findViewById<Button>(R.id.ScanCodeButton).setOnClickListener {
             ScannerFragment.scanCallback = { code, scanView ->
                 ServiceClient.getItems().thenApply { items ->
-                    items.find { item -> item.codeData == code }?.let { item ->
+                    val foundItem = items.find { item -> item.codeData == code }
+                    foundItem?.let { item ->
                         val bundle = Bundle()
                         bundle.putInt("itemId", item.id)
                         Navigation.findNavController(scanView)
                             .navigate(R.id.action_scannerFragment_to_itemFragment, bundle)
+                    }
+                    if (foundItem == null) {
+                        Navigation.findNavController(scanView)
+                            .navigate(R.id.action_scannerFragment_to_errorNotFoundFragment)
                     }
                 }
             }
             Navigation.findNavController(view)
                 .navigate(R.id.action_welcomeUserFragment_to_scannerFragment)
         }
-       view.findViewById<Button>(R.id.ManageTagsButton).setOnClickListener{
-           Navigation.findNavController(view).navigate(R.id.action_welcomeUserFragment_to_tagListFragment2)
-       }
+        view.findViewById<Button>(R.id.ManageTagsButton).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_welcomeUserFragment_to_tagListFragment2)
+        }
         return view
     }
 }
