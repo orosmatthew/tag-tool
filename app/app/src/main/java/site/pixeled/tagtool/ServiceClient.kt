@@ -3,6 +3,7 @@
 package site.pixeled.tagtool
 
 import android.app.Activity
+import android.text.Editable
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -237,9 +238,7 @@ object ServiceClient {
         return future
     }
 
-    fun updateTagType(
-        id: Int?, name: String?
-    ): CompletableFuture<Boolean> {
+    fun updateTagType(id: Int?, name: String?): CompletableFuture<Boolean> {
         val future = CompletableFuture<Boolean>()
         val json = JSONObject()
         json.put("id", id)

@@ -27,8 +27,9 @@ class TagListFragment : Fragment() {
             tagList.adapter = TagRecyclerViewAdapter(tags) { row ->
                 val bundle = Bundle()
                 bundle.putInt("tagId", tags[row].id)
+                bundle.putString("tagName", tags[row].name)
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_myListFragment_to_itemFragment, bundle)
+                    .navigate(R.id.action_tagListFragment_to_tagEditsFragment, bundle)
             }
         }
         return view
