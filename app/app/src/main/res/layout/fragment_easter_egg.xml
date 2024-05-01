@@ -10,18 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/EasterBackOne"
-            android:layout_width="92dp"
-            android:layout_height="66dp"
-            android:layout_marginTop="88dp"
-            android:text="⬅️"
-            android:textSize="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Emobutton" />
-
         <TextView
             android:id="@+id/name1"
             android:layout_width="wrap_content"
@@ -81,13 +69,24 @@
             android:id="@+id/easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/goblin_one"
             android:text="You found an easter egg"
             android:textColor="#F1F1F1"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.434"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/EasterBackOne"
+            android:layout_width="92dp"
+            android:layout_height="66dp"
+            android:text="⬅️"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toStartOf="@+id/easter"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
