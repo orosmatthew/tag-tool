@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import com.anton46.collectionitempicker.CollectionPicker
 import site.pixeled.tagtool.model.Item
@@ -47,6 +48,7 @@ class ItemFragment : Fragment() {
                         ServiceClient.deleteTag(currentTag.id)
                     }
                 }
+                Toast.makeText(context, "Item updated", Toast.LENGTH_SHORT).show()
             }
         }
     }
