@@ -69,14 +69,15 @@
             android:id="@+id/easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="84dp"
             android:fontFamily="@font/goblin_one"
-            android:text="You found an easter egg"
+            android:text="Easter egg!!!"
             android:textColor="#F1F1F1"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.875"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.425"
+            app:layout_constraintStart_toEndOf="@+id/EasterBackOne"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -85,7 +86,7 @@
             android:layout_height="66dp"
             android:text="⬅️"
             android:textSize="32sp"
-            app:layout_constraintEnd_toStartOf="@+id/easter"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
