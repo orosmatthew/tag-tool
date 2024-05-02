@@ -40,4 +40,9 @@ class UserModel
         }
         return null;
     }
+
+    static function deleteUser(Int $id): bool {
+        Database::executeSql("DELETE FROM User WHERE id = ?", "i", array($id));
+        return !isset(Database::$lastError);
+    }
 }

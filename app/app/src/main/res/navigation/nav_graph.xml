@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_welcomeUserFragment_to_tagListFragment2"
             app:destination="@id/tagListFragment" />
+        <action
+            android:id="@+id/action_welcomeUserFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"

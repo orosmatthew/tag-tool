@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 
 class AddingTagsFragment : Fragment() {
 
@@ -32,6 +33,10 @@ class AddingTagsFragment : Fragment() {
                     toast.show()
                 }
             }
+        }
+
+        view.findViewById<Button>(R.id.AddTagBack).setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
         }
         return view
     }

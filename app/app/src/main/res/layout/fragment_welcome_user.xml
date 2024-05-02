@@ -57,6 +57,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ScanCodeButton" />
 
+        <Button
+            android:id="@+id/DeleteAccountButton"
+            android:layout_width="226dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="42dp"
+            android:text="❌️ Delete Account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ManageTagsButton" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="212dp"
@@ -65,6 +76,17 @@
             android:src="@drawable/tag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/LogoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="🚪⬅️"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
